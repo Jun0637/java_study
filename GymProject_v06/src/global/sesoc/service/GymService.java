@@ -1,0 +1,33 @@
+package global.sesoc.service;
+
+import java.util.List;
+
+import global.sesoc.vo.GymVO;
+
+public interface GymService {
+	/**
+	 *한명의 회원에 대한 정보를 전달받아 ArrayList에 저장
+	 * @param vo : 회원 한 명의 정보가 담긴 객체
+	 * @return : 저장 완료 여부를 boolean으로 반환
+	 */
+	public boolean insert(GymVO vo);
+	/**
+	 * 사용자의 PK에 해당하는 id를 전달받아 해당 아이디의 사용자를 검색
+	 * @param id : 회원의 id(PK)
+	 * @return : id 에 해당하는 회원정보를 검색한 후 결과를 반환
+	 */
+	public GymVO selectOne(String id); // 키값을 받아서 GymVO반환
+	public boolean update(GymVO vo);
+	public boolean delete(String id);
+	public List<GymVO> selectAll();
+	
+	/**
+	 * 프로그램이 종료될 때 회원의 정보가 파일로 저장
+	 */
+	public void saveFile();
+	
+	/**
+	 * 프로그램이 구동될 때ㅐ의 회원의 정보가 파일에 메모리로 로딩
+	 */
+	public void loadFile();
+}
